@@ -42,6 +42,7 @@ main {
   justify-content: center;
   align-items: center;
   flex: 1;
+  height: 100vh;
 }
 
 .side-image {
@@ -51,7 +52,6 @@ main {
   background-position: left;
   background-image: url("./plant.jpg");
   border-radius: 45px 0 0 45px;
-  /* background-size: 50 */
 }
 
 .login {
@@ -110,4 +110,10 @@ main {
 
 .signin-options > h2 {
   font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .side-image {
+    display: none;
+  }
 }
