@@ -113,7 +113,19 @@ main {
 }
 
 @media only screen and (max-width: 800px) {
+  main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   .side-image {
-    display: none;
+    order: 1;
+    height: 10rem;
+    width: 100%;
+    background-position-y: -120px;
+    border-radius: 0 0 45px 45px;
+  }
+  .login-container {
+    order: 2;
   }
 }
