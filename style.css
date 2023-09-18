@@ -8,28 +8,17 @@
   background-color: #ffffff;
   font-family: "Poppins", sans-serif;
 }
-input {
-  display: block;
-  width: 100%;
-}
 
 input {
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   height: 2rem;
+  width: 100%;
   padding-left: 0.5rem;
 }
 
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
-}
-
-.checkbox-container > input {
-  display: inline;
-  width: auto;
+input[type="checkbox"] {
+  width: 1rem;
 }
 
 main {
@@ -59,6 +48,12 @@ main {
   height: 30rem;
 }
 
+.login > h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
 .login > form {
   display: flex;
   flex-direction: column;
@@ -66,14 +61,11 @@ main {
   gap: 1rem;
 }
 
-.login > h1 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 2.5rem;
-}
-
-.text-input {
-  width: 100%;
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
 }
 
 #checkbox-remember {
