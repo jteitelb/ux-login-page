@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+    Design by Bhakthi Manjari 
+        https://www.uxcrush.com/figma-desktop-signup-login-page/
+    -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <main>
+      <div class="login-container">
+        <div class="login">
+          <h1>Get Started Now</h1>
+          <form>
+            <div class="text-input">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div class="text-input">
+              <label for="email">Email address</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div class="text-input">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div class="checkbox-container" id="checkbox-terms">
+              <input type="checkbox" id="agree-terms" name="agree-terms" />
+              <label for="agree-terms"
+                >I agree to the <a href="">terms & policy</a></label
+              >
+            </div>
+            <div class="checkbox-container" id="checkbox-remember">
+              <input type="checkbox" id="remember-me" name="remember-me" />
+              <label for="remember-me">Remember for 30 days</label>
+            </div>
+            <input class="signup-button" type="submit" value="Signup" />
+          </form>
+          <div class="alternatives">
+            <div class="divider">
+              <hr />
+            </div>
+            <div class="signin-options">
+              <div class="signin-google"></div>
+              <div class="signin-apple"></div>
+              <h2>Have an account? <a href="">Sign In</a></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side-image"></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+input {
+  display: block;
+  width: 100%;
+}
+
+input {
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  height: 2rem;
+  padding-left: 0.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.checkbox-container > input {
+  display: inline;
+  width: auto;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.side-image {
+  width: 50vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: left;
+  background-image: url("./plant.jpg");
+  border-radius: 45px 0 0 45px;
+  /* background-size: 50 */
+}
+
+.login {
+  width: 20rem;
+  height: 30rem;
+}
+
+.login > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.login > h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.text-input {
+  width: 100%;
+}
+
+#checkbox-remember {
+  display: none;
+}
+
+.signup-button {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #3a5b22;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  border: none;
+  cursor: pointer;
+}
+
+.alternatives {
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.alternatives > .divider {
+  flex: 1;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.divider > hr {
+  border-top: 2px solid #f5f5f5;
+}
+
+.signin-options > h2 {
+  font-size: 0.8rem;
+}
