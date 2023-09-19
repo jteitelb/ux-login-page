@@ -17,23 +17,30 @@
   font-family: "Poppins", sans-serif;
 }
 
-input {
+.input {
+  height: 1.8rem; /* use flex-basis? */
+}
+
+.input-text {
   border: 1px solid var(--muted);
   border-radius: 10px;
-  height: 1.8rem;
   width: 100%;
   padding-left: 0.5rem;
 }
 
-input::placeholder {
+.checkbox {
+  flex-shrink: 1;
+}
+
+.input::placeholder {
   color: var(--muted);
 }
 
-input[type="checkbox"] {
+.input[type="checkbox"] {
   width: 0.8rem;
 }
 
-main {
+.main {
   display: flex;
   justify-content: space-between;
 }
@@ -60,13 +67,13 @@ main {
   height: 30rem;
 }
 
-.login > h1 {
+.login-header {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 2.5rem;
 }
 
-.login > form {
+.login-form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -130,17 +137,17 @@ main {
   background-color: var(--signin-button-hover);
 }
 
-.signin-button > img {
+.signin-button-img {
   width: 1.3rem;
 }
 
-.alternatives > h2 {
+.login-existing {
   margin-top: 1.5rem;
   font-size: 0.7rem;
   text-align: center;
 }
 
-.alternatives > h2 > a {
+.login-existing-link {
   color: var(--link-color);
   text-decoration: none;
 }
