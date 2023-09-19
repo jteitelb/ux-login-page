@@ -43,7 +43,7 @@ main {
   height: 100vh;
   background-size: cover;
   background-position: left;
-  background-image: url("./plant.jpg");
+  background-image: url("../assets/plant.jpg");
   border-radius: 45px 0 0 45px;
 }
 
