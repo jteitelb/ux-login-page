@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/style.css" />
+    <script src="src/index.js" defer></script>
     <title>Login Page</title>
   </head>
   <body>
@@ -22,7 +23,7 @@
       <div class="login-container">
         <div class="login">
           <h1 class="login-header">Get Started Now</h1>
-          <form class="login-form">
+          <form class="login-form" id="login-form">
             <div>
               <label for="name">Name</label>
               <input
@@ -32,6 +33,7 @@
                 name="name"
                 placeholder="Enter your name"
               />
+              <span class="form-error" id="name-error"></span>
             </div>
             <div>
               <label for="email">Email address</label>
@@ -42,6 +44,7 @@
                 name="email"
                 placeholder="Enter your email"
               />
+              <span class="form-error" id="email-error"></span>
             </div>
             <div>
               <label for="password">Password</label>
@@ -52,6 +55,7 @@
                 name="password"
                 placeholder="Enter your password"
               />
+              <span class="form-error" id="password-error"></span>
             </div>
             <div class="checkbox-container" id="checkbox-terms">
               <input
@@ -64,8 +68,14 @@
                 >I agree to the
                 <a class="terms-link" href="">terms & policy</a></label
               >
+              <span class="form-error" id="terms-error"></span>
             </div>
-            <input class="signup-button" type="submit" value="Signup" />
+            <input
+              class="signup-button"
+              id="signup"
+              type="submit"
+              value="Signup"
+            />
           </form>
           <div class="alternatives">
             <img class="divider" src="assets/divider.svg" />

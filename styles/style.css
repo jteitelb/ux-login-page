@@ -17,6 +17,8 @@
   --color-text-secondary: #0f3dde;
   --dim-text-secondary: #0c2a92;
 
+  --error-text: #ff0000;
+
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: "Poppins", sans-serif;
@@ -89,6 +91,11 @@
   gap: 1rem;
   font-size: 0.8rem;
   margin-top: 2.5rem;
+}
+
+.form-error {
+  color: var(--error-text);
+  font-size: 0.7rem;
 }
 
 .forgot-password-link {
