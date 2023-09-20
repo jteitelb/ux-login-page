@@ -111,7 +111,7 @@
   border: none;
   cursor: pointer;
   flex: 0;
-  padding: 0.3rem;
+  padding: 0.4rem;
 }
 .signup-button:hover {
   background-color: var(--button-color-hover);
@@ -125,6 +125,7 @@
 
 .divider {
   flex-grow: 1;
+  margin: 2rem 0;
 }
 
 .signin-options {
