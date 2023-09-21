@@ -52,7 +52,6 @@ function updateErrors() {
 nameInput.addEventListener("blur", updateErrors);
 emailInput.addEventListener("blur", updateErrors);
 passwordInput.addEventListener("blur", updateErrors);
-termsCheckbox.addEventListener("blur", updateErrors);
 
 signupButton.addEventListener("click", (event) => {
   event.preventDefault();

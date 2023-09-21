@@ -34,7 +34,6 @@ function updateErrors() {
 
 emailInput.addEventListener("blur", updateErrors);
 passwordInput.addEventListener("blur", updateErrors);
-rememberCheckbox.addEventListener("blur", updateErrors);
 
 loginButton.addEventListener("click", (event) => {
   event.preventDefault();
