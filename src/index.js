@@ -1,3 +1,10 @@
+import {
+  stringError,
+  validName,
+  validEmail,
+  validPassword,
+} from "./validation.js";
+
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -8,78 +15,68 @@ const emailError = document.getElementById("email-error");
 const passwordError = document.getElementById("password-error");
 const termsError = document.getElementById("terms-error");
 
-const signupButton = document.getElementById("signup");
+const signupButton = document.getElementById("signup-button");
 
-function stringError(string, minLength = 0) {
-  if (/[^a-zA-z]/.test(string)) {
-    return "must only contain letters";
-  }
-  if (string.length < minLength) {
-    return `must have at least ${minLength} characters`;
-  }
-  return "";
+function validSignupForm({ name, email, password, terms }) {
+  return (
+    validName(name) && validEmail(email) && validPassword(password) && terms
+  );
 }
 
-function validateName() {
-  const error = stringError(nameInput.value, 6);
-  if (error) {
-    nameError.innerHTML = "Name " + error;
-    return false;
-  }
-  nameError.innerHTML = "";
-  return true;
+function getSignupFormData() {
+  return {
+    name: nameInput.value,
+    email: emailInput.value,
+    password: passwordInput.value,
+    terms: termsCheckbox.checked,
+  };
 }
 
-function validateEmail() {
-  const email = emailInput.value;
-  if (email.match(/^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/)) {
-    emailError.innerHTML = "";
-    return true;
+function updateErrors() {
+  const { name, email, password } = getSignupFormData();
+  nameError.innerHTML =
+    !name || validName(name) ? "" : "name " + stringError(name, 6);
+  emailError.innerHTML =
+    !email || validEmail(email) ? "" : "Invalid email address";
+  passwordError.innerHTML =
+    !password || validPassword(password)
+      ? ""
+      : "password " + stringError(password, 8);
+  if (nameError.innerHTML || emailError.innerHTML || passwordError.innerHTML) {
+    signupButton.classList.add("inactive-button");
+  } else {
+    signupButton.classList.remove("inactive-button");
   }
-  emailError.innerHTML = "Invalid email address";
-  return false;
 }
 
-function validatePassword() {
-  const error = stringError(passwordInput.value, 8);
-  if (error) {
-    passwordError.innerHTML = "Password " + error;
-    return false;
-  }
-  passwordError.innerHTML = "";
-  return true;
-}
-
-function validateTerms() {
-  if (!termsCheckbox.checked) {
-    termsError.innerHTML = "must agree";
-    return false;
-  }
-  termsError.innerHTML = "";
-  return true;
-}
-
-nameInput.addEventListener("blur", validateName);
-emailInput.addEventListener("blur", validateEmail);
-passwordInput.addEventListener("blur", validatePassword);
-termsCheckbox.addEventListener("blur", validateTerms);
+nameInput.addEventListener("blur", updateErrors);
+emailInput.addEventListener("blur", updateErrors);
+passwordInput.addEventListener("blur", updateErrors);
+termsCheckbox.addEventListener("blur", updateErrors);
 
 signupButton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log("clicked signup - checking values:");
-  const validName = validateName();
-  const validEmail = validateEmail();
-  const validPassword = validatePassword();
-  const agreeTerms = validateTerms();
-  const formData = {};
-  if (validName && validEmail && validPassword && agreeTerms) {
-    formData.name = nameInput.value;
-    formData.email = emailInput.value;
-    formData.password = passwordInput.value;
-    formData.agreed = termsCheckbox.checked;
+
+  const formData = getSignupFormData();
+  const { name, email, password, terms } = formData;
+
+  termsError.innerHTML = terms ? "" : "must agree";
+
+  if (validSignupForm(formData)) {
     alert(JSON.stringify(formData));
     document.getElementById("login-form").reset();
   } else {
     console.error("signup: invalid inputs");
+  }
+
+  /* extra hints if tried to submit empty values */
+  if (!name) {
+    nameError.innerHTML = "name cannot be empty";
+  }
+  if (!email) {
+    emailError.innerHTML = "email cannot be empty";
+  }
+  if (!password) {
+    passwordError.innerHTML = "password cannot be empty";
   }
 });

@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/style.css" />
+    <script src="src/login.js" type="module" defer></script>
     <title>Login Page</title>
   </head>
   <body>
@@ -25,7 +26,7 @@
           <h2 class="login-text">
             Enter your Credentials to access your account
           </h2>
-          <form class="login-form">
+          <form class="login-form" id="login-form">
             <div>
               <label for="email">Email address</label>
               <input
@@ -35,6 +36,7 @@
                 name="email"
                 placeholder="Enter your email"
               />
+              <span class="form-error" id="email-error"></span>
             </div>
             <div>
               <label for="password">Password</label>
@@ -46,8 +48,9 @@
                 name="password"
                 placeholder="Enter your password"
               />
+              <span class="form-error" id="password-error"></span>
             </div>
-            <div class="checkbox-container" id="checkbox-remember">
+            <div class="checkbox-container">
               <input
                 class="input checkbox"
                 type="checkbox"
@@ -55,8 +58,14 @@
                 name="remember-me"
               />
               <label for="remember-me">Remember for 30 days</label>
+              <span class="form-error" id="remember-error"></span>
             </div>
-            <input class="signup-button" type="submit" value="Login" />
+            <input
+              class="signup-button"
+              id="login-button"
+              type="submit"
+              value="Login"
+            />
           </form>
           <div class="alternatives">
             <img class="divider" src="assets/divider.svg" />
