@@ -25,11 +25,6 @@ function updateErrors() {
     !password || validPassword(password)
       ? ""
       : "password " + stringError(password, 8);
-  if (emailError.innerHTML || passwordError.innerHTML) {
-    loginButton.classList.add("inactive-button");
-  } else {
-    loginButton.classList.remove("inactive-button");
-  }
 }
 
 emailInput.addEventListener("blur", updateErrors);

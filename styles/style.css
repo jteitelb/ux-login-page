@@ -12,7 +12,6 @@
 
   --color-ui-primary: #3a5b22;
   --hilite-ui-primary: #406823;
-  --inactive-ui-primary: #8b8b8b;
   --color-ui-primary-text: var(--color-background);
 
   --color-text-secondary: #0f3dde;
@@ -131,12 +130,6 @@
 }
 .signup-button:hover {
   background-color: var(--hilite-ui-primary);
-}
-
-.inactive-button,
-.inactive-button:hover {
-  background-color: var(--inactive-ui-primary);
-  cursor: not-allowed;
 }
 
 .alternatives {

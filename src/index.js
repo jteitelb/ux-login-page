@@ -42,11 +42,6 @@ function updateErrors() {
     !password || validPassword(password)
       ? ""
       : "password " + stringError(password, 8);
-  if (nameError.innerHTML || emailError.innerHTML || passwordError.innerHTML) {
-    signupButton.classList.add("inactive-button");
-  } else {
-    signupButton.classList.remove("inactive-button");
-  }
 }
 
 nameInput.addEventListener("blur", updateErrors);
