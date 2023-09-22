@@ -1,6 +1,6 @@
 const formValidators = {
   name: (name) => getStringError(name, 6),
-  email: (email) => (email.includes("@") ? "" : "Invalid email"),
+  email: (email) => (/.+@.+\..{2,}/.test(email) ? "" : "Invalid email"),
   password: (pass) => getStringError(pass, 8),
   "agree-terms": (agree) => (agree ? "" : "Must agree"),
 };
