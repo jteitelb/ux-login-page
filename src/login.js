@@ -1,53 +1,27 @@
-import { stringError, validEmail, validPassword } from "./validation.js";
+import validateField from "./validation.js";
 
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
-const rememberCheckbox = document.getElementById("remember-me");
-
-const emailError = document.getElementById("email-error");
-const passwordError = document.getElementById("password-error");
-
 const loginButton = document.getElementById("login-button");
 
-function getLoginFormData() {
-  return {
-    email: emailInput.value,
-    password: passwordInput.value,
-    remember: rememberCheckbox.checked,
-  };
-}
-
-function updateErrors() {
-  const { email, password } = getLoginFormData();
-  emailError.innerHTML =
-    !email || validEmail(email) ? "" : "Invalid email address";
-  passwordError.innerHTML =
-    !password || validPassword(password)
-      ? ""
-      : "password " + stringError(password, 8);
-}
-
-emailInput.addEventListener("blur", updateErrors);
-passwordInput.addEventListener("blur", updateErrors);
-
-loginButton.addEventListener("click", (event) => {
+function handleLogin(event) {
   event.preventDefault();
 
-  const formData = getLoginFormData();
-  const { email, password } = formData;
+  const formDataEntries = new FormData(event.target.form).entries();
+  const jsonData = Object.fromEntries(formDataEntries);
 
-  if (validEmail(email) && validPassword(password)) {
-    alert(JSON.stringify(formData));
-    document.getElementById("login-form").reset();
-  } else {
-    console.error("login: invalid inputs");
-  }
+  const validEmail = validateField(emailInput);
+  const validPassword = validateField(passwordInput);
 
-  /* extra hints if tried to submit empty values */
-  if (!email) {
-    emailError.innerHTML = "email cannot be empty";
+  if (validEmail && validPassword) {
+    alert(JSON.stringify(jsonData));
   }
-  if (!password) {
-    passwordError.innerHTML = "password cannot be empty";
-  }
-});
+}
+
+function handleBlur(event) {
+  validateField(event.target);
+}
+
+emailInput.addEventListener("blur", handleBlur);
+passwordInput.addEventListener("blur", handleBlur);
+loginButton.addEventListener("click", handleLogin);
